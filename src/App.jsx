@@ -1,122 +1,104 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+function Todos() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <section className="mx-auto max-w-[550px]">
+        <h1 className="text-center text-[80px] font-extralight text-[#b83f45]">
+        todos
+       </h1>
 
-      <div className="ticks"></div>
+       <div className="relative bg-white shadow-[0_2px_4px_0_rgba(0,0,0,0.2),0_25px_50px_0_rgba(0,0,0,0.1)]">
+            <form>
+             <input
+                className="h-[65px] w-full py-4 pr-4 pl-[60px] text-2xl shadow-[inset_0_-2px_1px_rgba(0,0,0,0.03)] outline-none placeholder:text-black/40 placeholder:italic focus:shadow-[0_0_2px_2px_#cf7d7d]"
+                placeholder="What needs to be done?"
+          />
+            </form>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+            
+            <main className="relative border-t border-[#e6e6e6]">
+            <input id="toggle-all" type="checkbox" className="peer sr-only" />
+            <label
+                htmlFor="toggle-all"
+                className="absolute -top-[66px] left-0 flex h-[65px] w-[60px] cursor-pointer items-center justify-center text-[22px] text-[#949494] peer-checked:text-[#484848]"
+            >
+                <span className="rotate-90">❯</span>
+            </label>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+             <ul>
+                <li className="group relative flex items-center border-b border-[#ededed] text-2xl">
+                <input
+                    type="checkbox"
+                    className="ml-[15px] size-[30px] shrink-0 cursor-pointer accent-[#59a193]"
+                />
+                <span className="flex-1 py-[15px] pr-[60px] pl-[15px] break-all">
+                    Learn the spread operator
+                </span>
+                <button
+                    type="button"
+                    className="absolute right-[10px] hidden size-10 cursor-pointer text-[30px] text-[#949494] group-hover:block hover:text-[#c18585]"
+                >
+                
+                </button>
+                </li>
+                 <li className="group relative flex items-center border-b border-[#ededed] text-2xl">
+                    <input
+                        type="checkbox"
+                        checked
+                        readOnly
+                        className="ml-[15px] size-[30px] shrink-0 cursor-pointer accent-[#59a193]"
+                    />
+                    <span className="flex-1 py-[15px] pr-[60px] pl-[15px] break-all text-[#949494] line-through">
+                        Set up Tailwind
+                    </span>
+                    <button
+                        type="button"
+                        className="absolute right-[10px] hidden size-10 cursor-pointer text-[30px] text-[#949494] group-hover:block hover:text-[#c18585]"
+                    >
+                        
+                    </button>
+                 </li>
+
+             </ul>
+            </main>
+
+            <footer className="grid h-10 grid-cols-3 items-center border-t border-[#e6e6e6] px-[15px] text-[15px]">
+               <span>
+                <strong className="font-light">1</strong> item left
+               </span>
+
+               <ul className="flex justify-center gap-1">
+                  <li>
+                    <button
+                        type="button"
+                        className="cursor-pointer rounded-[3px] border border-[#b83f45]/20 px-[7px] py-[3px]"
+                    >
+                        All
+                    </button>
+                    </li>
+                    <li>
+                    <button
+                        type="button"
+                        className="cursor-pointer rounded-[3px] border border-transparent px-[7px] py-[3px] hover:border-[#b83f45]/10"
+                    >
+                        Active
+                    </button>
+                    </li>
+                    <li>
+                    <button
+                        type="button"
+                        className="cursor-pointer rounded-[3px] border border-transparent px-[7px] py-[3px] hover:border-[#b83f45]/10"
+                    >
+                        Completed
+                  </button>
+                  </li>
+              </ul>
+
+              <button type="button" className="cursor-pointer justify-self-end hover:underline">
+                    Clear completed
+              </button>
+            </footer>
+       </div>
+    </section>
   )
 }
-
-export default App
+ 
+export default Todos
