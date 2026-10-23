@@ -29,8 +29,13 @@ function Todos() {
             setTodos(todos.filter((todo) => todo.id !== id))
         }
 
+        function handleClearCompleted() {
+          setTodos(todos.filter((todo) => !todo.completed))
+        }
+
 
         const itemsLeft = todos.filter((todo) => !todo.completed).length
+        const hasCompleted = todos.some((todo) => todo.completed)
 
 
   return (
@@ -126,9 +131,15 @@ function Todos() {
                   </li>
               </ul>
 
-              <button type="button" className="cursor-pointer justify-self-end hover:underline">
+             {hasCompleted && (
+                <button
+                    type="button"
+                    onClick={handleClearCompleted}
+                    className="cursor-pointer justify-self-end hover:underline"
+                >
                     Clear completed
-              </button>
+                </button>
+                )}
             </footer>
             </>
             )}
